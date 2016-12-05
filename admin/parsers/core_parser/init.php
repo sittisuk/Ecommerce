@@ -1,5 +1,6 @@
 <?PHP
-$db = mysqli_connect('27.254.219.54:3306','sittisuk','sittisuk','arisasub_com_');
+// $db = mysqli_connect('27.254.219.54:3306','sittisuk','sittisuk','arisasub_com_');
+$db = mysqli_connect('localhost','root','','ecom');
 if(mysqli_connect_errno()){
 	echo 'Database connection failed with following errors: '. mysqli_connect_error();
 	die();

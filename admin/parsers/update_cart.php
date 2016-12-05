@@ -17,7 +17,6 @@
       if($item['quantity'] > 0){
         $updated_items[] = $item;
       }
-      # code...
     }
   }
 
@@ -27,7 +26,6 @@
         $item['quantity'] = $item['quantity'] + 1;
       }
       $updated_items[] = $item;
-      # code...
     }
   }
 

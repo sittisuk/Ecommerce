@@ -60,21 +60,21 @@ echo $hashed; */?>
       <img src="../image/headerlogo/back-flower.png"/>
     </div>
     <div class="col-md-6">
-      <h2 class="text-center">SIGN IN</h2><hr>
+      <h2 class="text-center">เข้าสู่ระบบผู้ดูแล</h2><hr>
       <form action="login.php" method="POST">
         <div class="form-group">
-          <label for="email">Email:</label>
+          <label for="email">อีเมลล์:</label>
           <input type="text" name="email" id="email" class="form-control" value="<?=$email?>"/>
         </div>
         <div class="form-group">
-          <label for="password">Password:</label>
+          <label for="password">รหัส:</label>
           <input type="password" name="password" id="password" class="form-control" value="<?=$password?>"/>
         </div>
         <div class="form-group">
-          <input type="submit" value="Login" class="btn btn-primary"/>
+          <input type="submit" value="เข้าสู่ระบบ" class="btn btn-primary"/>
         </div>
       </form>
-      <p class="text-right"><a href="../index.php" alt="home">Visit Site</a></p>
+      <p class="text-right"><a href="../index.php" alt="home">หน้าแสดงสินค้า</a></p>
     </div>
   </div>
 </div>

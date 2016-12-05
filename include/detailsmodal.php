@@ -36,28 +36,28 @@
               </div>
             </div>
             <div class="col-sm-6">
-              <h4>Details</h4>
+              <h4>รายละเอียด</h4>
               <p><?= nl2br($product['description']);?></p>
               <hr>
-              <p>Prie : $<?= $product['price'];?></p>
-              <p>Brand: <?= $brand['brand'];?></p>
+              <p>ราคา : ฿<?= $product['price'];?></p>
+              <p>แบรนด์: <?= $brand['brand'];?></p>
               <form action="add-cart.php" method="post" id="add_product_form">
                 <input type="hidden" name="product_id" value="<?=$id?>"/>
                 <input type="hidden" name="available" id="available" value=""/>
                 <div class="form-group">
-                  <div class="col-xs-3"><label for="quantity">Quantity:</label>
+                  <div class="col-xs-3"><label for="quantity">ปริมาณ:</label>
                     <input type="number" class="form-control" id="quantity" name="quantity" min="0"></div></br><div class="col-xs-9">&nbsp;</div>
                 </div></br></br>
                 <div class="form-group">
-                  <label for="size">Size: </label>
+                  <label for="size">ขนาด: </label>
                   <select name="size" id="size" class="form-control">
-                    <option value="">Select for size</option>
+                    <option value="">เลือกขนาดที่ต้องการ</option>
 
                     <?php foreach($size_array as $string){
                       $string_array = explode(':', $string);
                       $size = $string_array[0];
                       $available = $string_array[1];
-                      echo '<option value="'.$size.'" data-available="'.$available.'">'.$size.' ('.$available.' Available)</option>';
+                      echo '<option value="'.$size.'" data-available="'.$available.'">'.$size.' ( '.$available.' ชิ้น )</option>';
                     }?>
 
                   </select>
@@ -68,8 +68,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-default" onclick="CloseModal()">Close</button>
-        <button class="btn btn-warning" onclick="add_to_cart(); return false;"><span class="glyphicon glyphicon-shopping-cart"></span>Add To Cart</button>
+        <button class="btn btn-default" onclick="CloseModal()">ปิด</button>
+        <button class="btn btn-warning" onclick="add_to_cart(); return false;"><span class="glyphicon glyphicon-shopping-cart"></span> ใส่ตะกร้า</button>
       </div>
     </div>
   </div>

@@ -15,14 +15,14 @@
 
 <div class="col-md-12">
   <div class="row">
-    <h2 class="text-center">My Shopping Cart</h2><hr>
+    <h2 class="text-center">ตะกร้า</h2><hr>
     <?php if($cart_id == ''): ?>
       <div class="bg-danger">
-        <p class="text-center text-danger">Your Shopping Cart is empty!</p>
+        <p class="text-center text-danger">ยังไม่มีสินค้าในตะกร้า</p>
       </div>
     <?php else: ?>
       <table class="table table-bordered table-condensed table-striped">
-        <thead><th>#</th><th>Item</th><th>Price</th><th>Quantity</th><th>Size</th><th>Sub Total</th></thead>
+        <thead><th>#</th><th>รหัสสินค้า</th><th>ผลิตภัณฑ์</th><th>ราคา</th><th>จำนวน</th><th>ขนาด</th><th>รวม</th></thead>
         <tbody>
           <?php foreach ($items as $item) {
             # code...
@@ -40,6 +40,7 @@
             ?>
             <tr>
               <td width="2%"><?= $i++;?></td>
+              <td width="10%"><?= $product['number_product']?></td>
               <td width="50%"><?= $product['title']?></td>
               <td width="10%"><?= money($product['price'])?></td>
               <td width="10%">
@@ -65,8 +66,8 @@
         </tbody>
       </table>
       <table class="table table-bordered table-condendes text-right">
-        <legend>Totals</legend>
-        <thead class="totals-table-header"><th>Total Items</th><th>Sub Total</th><th>Tax</th><th>Grand Total</th></thead>
+        <legend>รวมทั้งหมด</legend>
+        <thead class="totals-table-header"><th>จำนวนผลิตภัณฑ์</th><th>รวม</th><th>ภาษี</th><th>รวมทั้งสิ้น</th></thead>
         <tbody>
           <tr>
             <td width="10%"><?= $item_count?></td>
@@ -79,7 +80,7 @@
 
       <!-- check out button -->
       <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#checkoutModal">
-        <span class="glyphicon glyphicon-shopping-cart"></span> Check Out >>
+        <span class="glyphicon glyphicon-shopping-cart"></span> จ่ายเงิน >>
       </button>
 
       <!-- Modal -->

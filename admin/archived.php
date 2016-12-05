@@ -15,11 +15,11 @@
 
     $presults = $db->query("SELECT * FROM products WHERE deleted = 1 ORDER BY title");
 ?>
-<h2 class="text-center">Products</h2>
+<h2 class="text-center">ผลิตภัณฑ์</h2>
 <!--a href="products.php?add=1" class="btn btn-success pull-right" id="add-product-btn">Add Product</a><div class="clearfix"></div-->
 <hr>
 <table class="table table-bordered table-condensed table-striped">
-    <thead><th>#</th><th>Products</th><th>Price</th><th>Category</th><!--th>Featured</th--><th>Sold</th></thead>
+    <thead><th>#</th><th>ผลิตภัณฑ์</th><th>ราคา</th><th>หมวดหมู่</th><!--th>Featured</th--><th>ขาย</th></thead>
     <tbody>
         <?PHP while($product = mysqli_fetch_assoc($presults)):
               $childID = $product['categories'];

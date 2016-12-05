@@ -55,11 +55,11 @@ function add_to_cart(){
   var error = '';
   var data = $('#add_product_form').serialize();
   if(size == '' || quantity == '' || quantity == 0){
-    error += '<p class="text-danger text-center">You must choose a size and quantity.</p>';
+    error += '<p class="text-danger text-center">ท่านต้องเลือกขนาดของสินค้าก่อน.</p>';
     $('#modal_errors').html(error);
     return;
   }else if(quantity > available){
-    error += '<p class="text-danger text-center">There are only'+available+' available.</p>';
+    error += '<p class="text-danger text-center">สามารถเลือกได้ไม่เกิน '+available+' ชิ้น.</p>';
     $('#modal_errors').html(error);
     return;
   }else{

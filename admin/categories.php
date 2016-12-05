@@ -90,28 +90,28 @@
         }
     }
  ?>
-<h2 class="text-center">Categories</h2><hr>
+<h2 class="text-center">หมวดหมู่</h2><hr>
 <div class="row">
     <!-- FORM -->
     <div class="col-md-6">
         <form class="form" action="categories.php<?= ((isset($_GET['edit']))?'?edit'.$edit_id:'');?>" method="post">
-            <legend><?= ((isset($_GET['edit']))?'Edit':'Add A'); ?> Category</legend>
+            <legend><?= ((isset($_GET['edit']))?'แก้ไข':'เพิ่ม'); ?>หมวดหมู่</legend>
             <div id="errors"></div>
             <div class="form-group">
-                <label for="parent">Parent</label>
+                <label for="parent">หลัก</label>
                 <select class="form-control" name="parent" id="parent">
-                    <option value="0"<?= (($parent_value == 0)?' Selected="Selected"':''); ?>>Parent</option>
+                    <option value="0"<?= (($parent_value == 0)?' Selected="Selected"':''); ?>>หลัก</option>
                     <?PHP while($parent = mysqli_fetch_assoc($result)): ?>
                         <option value="<?= $parent['id'];?>"<?= (($parent_value == $parent['id'])?'Selected="Selected"':'');?>><?= $parent['category'];?></option>
                     <?PHP endwhile;?>
                 </select>
             </div>
             <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category">หมวดหมู่</label>
                 <input type="text" class="form-control" id="category" name="category" value="<?= $category_value;?>">
             </div>
             <div class="form-group">
-                <input type="submit" value="<?= ((isset($_GET['edit']))?'Edit':'Add');?> Category" class="btn btn-success">
+                <input type="submit" value="<?= ((isset($_GET['edit']))?'แก้ไข':'เพิ่ม');?> หมวดหมู่" class="btn btn-success">
             </div>
         </form>
     </div>
@@ -120,7 +120,7 @@
     <div class="col-md-6">
         <table class="table table-bordered">
             <thead>
-                <th>Category</th><th>Parent</th><th></th>
+                <th>หมวดหมู่</th><th>หลัก</th><th></th>
             </thead>
             <tbody>
                 <?PHP
@@ -134,7 +134,7 @@
                   ?>
                 <tr class="bg-primary">
                     <td><?= $parent['category'];?></td>
-                    <td>Parent</td>
+                    <td>หลัก</td>
                     <td>
                         <a href="categories.php?edit=<?= $parent['id'];?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a href="categories.php?delete=<?= $parent['id'];?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-sign"></span></a>

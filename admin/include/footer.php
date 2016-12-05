@@ -1,7 +1,6 @@
     </div>
     <footer class="text-center" id="footer"><font color="#fff">&copy; Copyright 2016 SHOPPER CENTRAL</font></footer>
 
-
     <script>
         function updateSizes(){
             var sizeString = '';

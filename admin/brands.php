@@ -50,8 +50,21 @@
       if(!empty($errors)){
           echo display_errors($errors);
       }else{
+
+        // number_product code item number
+        $sst = "SELECT Max(substr(number_brand,-3))+1 AS MaxID FROM  brand";
+        $resultt = $db->query($sst);
+        $new_id = mysqli_fetch_assoc($resultt);
+
+        $date = date('y')+43;
+        if($new_id['MaxID'] == ''){
+            $number_brand = "B".$date."-001";
+        }else{
+            $number_brand = "B".$date.sprintf("%03d",$new_id['MaxID']);
+        }
+
         //Add brand to Database
-        $sql = "INSERT INTO brand (brand) VALUES ('$brand') ";
+        $sql = "INSERT INTO brand (number_brand, brand) VALUES ('$number_brand','$brand') ";
         if(isset($_GET['edit'])){
           $sql = "UPDATE brand SET brand = '$brand' WHERE id = '$edit_id'";
         }
@@ -60,7 +73,7 @@
       }
   }
 ?>
-<h2 class="text-center">Brands</h2><hr>
+<h2 class="text-center">แบรนด์</h2><hr>
 
 <!-- Brand Form -->
 <div class="text-center">
@@ -76,24 +89,25 @@
               }
             }
             ?>
-            <lable for="brand"><b><?= ((isset($_GET['edit']))?'Edit':'Add A'); ?> Brand: </b></lable>
+            <lable for="brand"><b><?= ((isset($_GET['edit']))?'แก้ไข':'เพิ่ม'); ?> แบรนด์: </b></lable>
             <input type="text" name="brand" id="brand" class="form-control" value="<?= $brand_value ?>">
             <?php if(isset($_GET['edit'])): ?>
-                <a href="brands.php" class="btn btn-default">Cancel</a>
+                <a href="brands.php" class="btn btn-default">ยกเลิก</a>
             <?php endif; ?>
-            <input type="submit" name="add_submit" value="<?= ((isset($_GET['edit']))?'Edit':'Add');?> Brand" class="btn btn-success">
+            <input type="submit" name="add_submit" value="<?= ((isset($_GET['edit']))?'แก้ไข':'เพิ่ม');?> แบรนด์" class="btn btn-success">
         </div>
     </form>
 </div><hr>
 
 <table class="table table-bordered table-striped " id="table-auto">
     <thead>
-        <th></th><th>Brands</th><th></th>
+        <th></th><th>รหัสแบรนด์</th><th>แบรนด์</th><th></th>
     </thead>
     <tbody>
       <?php while($brand = mysqli_fetch_assoc($results)): ?>
         <tr>
             <td><a href="brands.php?edit=<?= $brand['id']; ?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><?= $brand['number_brand'];?></td>
             <td><?= $brand['brand'];?></td>
             <td><a href="brands.php?delete=<?= $brand['id']; ?>" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-sign"></span></a></td>
         </tr>

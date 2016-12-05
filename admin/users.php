@@ -55,46 +55,47 @@
       }
     }
 ?>
-    <h2 class="text-center">Add A New User</h2><hr>
+    <h2 class="text-center">เพิ่มผู้ใช้ใหม่</h2><hr>
     <form action="users.php?add=1" method="post">
       <div class="form-group col-md-6">
-        <label for="name">Full Name:</label>
+        <label for="name">ชื่อเต็ม:</label>
+        <code>AAAA BBBB</code>
         <input type="text" name="name" id="name" class="form-control" value="<?=$name;?>"/>
       </div>
       <div class="form-group col-md-6">
-        <label for="email">Email:</label>
+        <label for="email">อีเมลล์:</label>
         <input type="text" name="email" id="email" class="form-control" value="<?=$email;?>"/>
       </div>
       <div class="form-group col-md-6">
-        <label for="password">Password:</label>
+        <label for="password">รหัส:</label>
         <input type="password" name="password" id="password" class="form-control" value="<?=$password;?>"/>
       </div>
       <div class="form-group col-md-6">
-        <label for="confirm">Confirm Password:</label>
+        <label for="confirm">ยืนยันรหัสผ่าน:</label>
         <input type="password" name="confirm" id="confirm" class="form-control" value="<?=$confirm;?>"/>
       </div>
       <div class="form-group col-md-6">
-        <label for="permission">Permission:</label>
+        <label for="permission">การอนุญาต:</label>
         <select class="form-control" name="permission">
           <option value=""<?= (($permission == '')?' selected':'') ?>></option>
-          <option value="editor"<?= (($permission == 'editor')?' selected':'') ?>>Editor</option>
-          <option value="admin,editor"<?= (($permission == 'admin,editor')?' selected':'') ?>>Admin</option>
+          <option value="editor"<?= (($permission == 'editor')?' selected':'') ?>>ผู้ช่วยดูแล</option>
+          <option value="admin,editor"<?= (($permission == 'admin,editor')?' selected':'') ?>>ผู้ดูแล</option>
         </select>
       </div>
       <div class="form-group col-md-6 text-right" style="margin-top:25px">
-        <a href="users.php" class="btn btn-default">Cancel</a>
-        <input type="submit" value="Add User" class="btn btn-primary"/>
+        <a href="users.php" class="btn btn-default">ยกเลิก</a>
+        <input type="submit" value="เพิ่มผู้ใช้" class="btn btn-primary"/>
       </div>
     </form>
 <?php
   }else{
   $userQuery = $db->query("SELECT * FROM users ORDER BY full_name");
 ?>
-<h2>Users</h2>
-<a href="users.php?add=1" class="btn btn-success pull-right" id="add-product-btn">Add new user</a>
+<h2>ผู้ใช้</h2>
+<a href="users.php?add=1" class="btn btn-success pull-right" id="add-product-btn">เพิ่มผู้ใช้ใหม่</a>
 <hr>
 <table class="table table-bordered table-striped table-condensed">
-  <thead><th></th><th>Name</th><th>Email</th><th>Join Date</th><th>Last Login</th><th>Permissions</th></thead>
+  <thead><th></th><th>ชื่อ</th><th>อีเมลล์</th><th>วันที่สมัคร</th><th>เข้าสู่ระบบล่าสุด</th><th>สถานะ</th></thead>
   <tbody>
     <?php while ($user = mysqli_fetch_assoc($userQuery)) :?>
     <tr>

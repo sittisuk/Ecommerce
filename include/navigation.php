@@ -23,8 +23,8 @@
     					</ul>
     				</li>
 			<?php endwhile; ?>
-           <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</a></li>
-           <li><a href="admin/login.php"><span class="glyphicon glyphicon-user"></span> ADMIN</a></li>
+           <li><a href="cart.php" target="_blank"><span class="glyphicon glyphicon-shopping-cart"></span> ตะกร้า</a></li>
+           <li><a href="admin/login.php" target="_blank"><span class="glyphicon glyphicon-user"></span> ผู้ดูแล</a></li>
         </ul>
     </div>
 </nav>
